@@ -31,7 +31,7 @@ export const addSmurf = (smurf) => {
                 })
                 .catch((err)=> {
                     console.log(err)
-                    dispatch(setErrorText('Network error. Unable to add new smurf.'))
+                    dispatch(setErrorText('Network error. Unable to add smurf.'))
                 })
         }
     })

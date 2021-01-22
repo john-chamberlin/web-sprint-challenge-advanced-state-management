@@ -7,8 +7,8 @@ class Smurf extends React.Component {
         return(<div data-testid="smurf" className="card">
             <h3 className='card-title'>{smurf.name}</h3>
             <p>Position: {smurf.position}</p>
-            <p>Description: {smurf.description}</p>
             <p>Nickname: {smurf.nickname}</p>
+            <p>Description: {smurf.description}</p>
 
         </div>);
     }
