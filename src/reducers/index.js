@@ -1,8 +1,36 @@
+// import { act } from "react-dom/test-utils"
+
+import {FETCH_SMURFS_START, FETCH_SMURFS_FAILED, FETCH_SMURFS_SUCCESS, ADD_SMURF, SET_ERROR_TEXT} from '../actions/index'
 
 export const initialState = {
+    smurfs: [],
+    isLoading: false,
+    error: ''
 }
 
-const reducer = ()=>{
+export const reducer = (state = initialState, action)=>{
+    switch(action.type) {
+        case(FETCH_SMURFS_START): 
+            return({...state, isLoading: true})
+        case(FETCH_SMURFS_FAILED):
+            return ({...state,
+                isLoading: false,
+                error: action.payload
+            })
+        case(FETCH_SMURFS_SUCCESS):
+            return({...state, 
+                isLoading: false,
+                smurfs: action.payload
+            })
+        case(ADD_SMURF):
+            return({...state,
+                smurfs: [...state.smurfs, action.payload]
+            })
+        case(SET_ERROR_TEXT):
+            return({...state, error: action.payload})
+    default:
+        return state
+    }
 }
 
 export default reducer;
